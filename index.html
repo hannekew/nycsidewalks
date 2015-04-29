@@ -9,7 +9,7 @@
       html, body, #map {
         height: 100%;
         padding: 0;
-        margin: 0;
+        margin: 10px;
       }
     </style>
 
@@ -31,7 +31,7 @@
             tiles_loader: true,
             center_lat: 40.7021833,
             center_lon: -73.900573,
-            zoom: 13
+            zoom: 12
         })
         .done(function(vis, layers) {
           layers[1].setInteraction(true);
