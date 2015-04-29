@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Easy example | CartoDB.js</title>
+    <title>NYC Snowy Sidewalk Citations</title>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
     <link rel="shortcut icon" href="http://cartodb.com/assets/favicon.ico" />
@@ -18,12 +18,11 @@
   <body>
     <div id="map"></div>
 
-    <!-- include cartodb.js library -->
     <script src="http://libs.cartocdn.com/cartodb.js/v3/3.14/cartodb.js"></script>
 
     <script>
       function main() {
-        cartodb.createVis('map', 'http://documentation.cartodb.com/api/v2/viz/2b13c956-e7c1-11e2-806b-5404a6a683d5/viz.json', {
+        cartodb.createVis('map', 'https://hannekeweitering.cartodb.com/api/v2/viz/efa9b826-ea43-11e4-a6a4-0e5e07bb5d8a/viz.json', {
             shareable: true,
             title: true,
             description: true,
