@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 
-<body><section>
+<body>
+<section>
+
 <div class="backgroundimage"></div>
 
   <img src="https://cloud.githubusercontent.com/assets/10858106/7486534/b573b352-f374-11e4-97aa-11a65c4da0e2.jpg" alt="background" />
@@ -11,7 +13,9 @@
   
   <h4>By Hanneke Weitering</h4>
   <h5>April 29, 2015</h5><br><br>
+
 </section>
+
   <style>
    body
    {
@@ -29,34 +33,37 @@
   	font-size: 54px;
   	text-align: left;
   	margin-left: 90px;
-  	line-height: 1;
   	color: white;
   	margin-bottom:5px;
-  	z-index: 4;
 }
 
 h2, h3, h4, h5{
   	position: relative;
   	font-family: Cambria;
-  	letter-spacing: -0.03em;
   	font-weight: 300;
   	font-size: 30px;
-  	line-height: 1.2;
   	text-align: left;
   	margin-left: 40;
   	color: white;
   	margin-top: 10px;
-  	z-index: 4;
 }
-
+section { 
+    display: block;
+    box-sizing: border-box;
+    clear:both;
+    padding-top: 80px;
+    padding-bottom: 140px;
+  margin-bottom: 30px;
+}
     .backgroundimage{
       position: absolute;
+      background-size:cover;
       background-attachment: fixed;
       background-repeat: no-repeat;
       top: 0;
       left: 0;
       right: 0;
-      width:100%;
+      background-position: 50% 50%;
       height:800px;
 }
     
