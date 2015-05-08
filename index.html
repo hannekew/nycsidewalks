@@ -1,393 +1,456 @@
-<!DOCTYPE html>
 <html>
-<title>NYC Snowiest Sidewalks</title>
+	<title>NYC Snowiest Sidewalks</title>
 
-<section>
+	<section>
 
-<div class="backgroundimage"></div>
-  
-	<header id="headings">
-		<h1>
-			New York City's <br>
-  			<b>Snowiest</b> Sidewalks </h1>
-  	
-  		<h2>
-  			Brooklyn and Queens rack up the most citations for slippery <br>
-  			sidewalks, but Staten Island residents are the biggest <br>
-  			slackers when it comes to shoveling snow. </h2>
-  	
-  		<h3>
-  			By Hanneke Weitering<br>
-  			May 6, 2015 </h3>
-	</header>
+		<div class="backgroundimage"></div>
+	  
+		<header id="headings">
+			<h1>
+				New York City's <br>
+	  			<b>Snowiest</b> Sidewalks </h1>
+	  	
+	  		<h2>
+	  			Brooklyn and Queens rack up the most citations for slippery <br>
+	  			sidewalks, but Staten Island residents are the biggest <br>
+	  			slackers when it comes to shoveling snow. </h2>
+	  	
+	  		<h3>
+	  			By Hanneke Weitering<br>
+	  			May 6, 2015 </h3></header></section>
 
-</section>
 
+	<body>
+
+
+	<!--CARTODB MAP STARTS HERE-->
+
+	<head>
+	    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+	    <link rel="shortcut icon" href="http://cartodb.com/assets/favicon.ico" />
+	    <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.14/themes/css/cartodb.css" /></head>
+	  
+	<div id="map"></div>
+	    
+	<script src="http://libs.cartocdn.com/cartodb.js/v3/3.14/cartodb.js"></script>
+
+		<script>
+	      function main() {
+	        cartodb.createVis('map', 'https://hannekeweitering.cartodb.com/api/v2/viz/e46f1604-f227-11e4-8039-0e8dde98a187/viz.json', {
+	            shareable: true,
+	            title: false,
+	            description: true,
+	            search: true,
+	            tiles_loader: false,
+	            center_lat: 40.7142700,
+	            center_lon: -73.977346,
+	            zoom: 11})
+	        .done(function(vis, layers) {
+	          layers[1].setInteraction(true);
+	          layers[1].on('featureOver', function(e, latlng, pos, data) {
+	            cartodb.log.log(e, latlng, pos, data);});
+	          var map = vis.getNativeMap();})
+	        .error(function(err) {
+	          console.log(err);});}
+	      window.onload = main;
+	    </script>
+
+
+	<!--CAPTION FOR HEATMAP-->
+	<div>
+		<p class="caption">
+			This heatmap shows the accumulation of citations issued for snow and ice on 
+			New York City's sidewalks between January 1 and March 19 of 2015.	
+		</p></div>
+
+
+	<!--LEDE-->
+	<div>
+	    <p class="text">
+	    	Slippery sidewalks can be a pain for pedestrians, but in New York City, 
+	    	they can cost property owners an awful lot of money. 
+	    	New York <a href="http://codes.lp.findlaw.com/nycode/ADC/16/1/16-123">law</a> 
+	    	demands that residents and business owners alike shovel snow and clear the ice 
+	    	on all sidewalks adjacent to their properties.
+	    	
+	    	Those who don't comply face hundreds of dollars in fines or even 
+	    	<a href="http://www.ibtimes.com/jailed-not-shoveling-your-sidewalk-thats-law-new-york-paper-least-1558052">jail time</a>.
+	    	Despite the harsh consequences, thousands of New Yorkers neglect their snowy sidewalks every winter.</p></div>
+	  
+
+	<!-- PARAGRAPH // REPEAT OFFENDERS -->
+	<div>  
+	     <p class="text">
+	    	While a vast majority of offenders seem to learn their lesson after acquiring only one or two  
+	    	citations, others continually neglect their hazardous snowy sidewalks and face heavy fines. 
+	    	First offenses cost $150, while repeat offenders must cough up $250 per violation. 
+	    	During the winter of 2015, nearly eighty percent of New Yorkers who were cited were first-time offenders. 
+	    	As for the repeat offenders, over half of them received just two citations. </p></div>
+
+
+	<br><br><br><br>
+
+
+	<!-- CAPTION // REPEAT OFFENDERS -->
+	<div>
+		<p class="caption">
+		Between January 1 and March 19, 2015, more than 20 thousand citations were issued to about 14 thousand New Yorkers.
+		Not pictured in this chart are the 10,950 first-time offenders.
+		</p></div>
+
+
+	<!-- CHART // REPEAT OFFENDER FREQUENCY -->
+	<IMG class="image" 
+	 	src="https://cloud.githubusercontent.com/assets/10858106/7478831/66f7e282-f32b-11e4-8c7f-813e1c7ef614.png" 
+	  	alt="repeatoffenderfrequency">
+	  
+
+	<!-- PARAGRAPH // COMPARING BOROUGH TOTALS -->    	
+	<div>
+	    	<p class="text">
+	    		In terms of total citations this year,  Brooklyn and Queens certainly take the cake with 6,466 and 7,449 violations, respectively, between January 1 and March 19. But while Brooklyn and Queens may have racked up the most citations, Staten Island received the highest number of violations per resident. Meanwhile, Manhattanites proved to be the most diligent sidewalk cleaners of all, with only 502 tickets total. <br><br></p></div>
+
+
+	<!-- CAPTION (TOP) // DONUT CHART -->
+	<div align="center">
+		<p class="charttitle">
+			<b>Percentage Breakdown by Boroughs</b> 
+			<br>Citations & Populations<br>
+		</p></div>
+
+
+
+<!--DONUT CHART AND TABLE // IN-LINE DIV ITEMS-->
 <style>
+	#inline
+		{
+			position:relative;
+			display:block;
+			width:auto;
+			max-height:450px;
+			margin:0 auto;
+			text-align:center;
+			padding-bottom:80px;
+			padding-left:10px;
+			padding-right:10px;
+		}
+	#leftside
+		{
+			display: inline-block;
+			text-align:right;
+			margin:0 auto;
+		}
+	#rightside
+		{
+			display: inline-block;
+			position:static;
+			text-align:left;
+			max-width:218px;
+			margin:0 auto;
+			padding-bottom:150px;
 
-	#headings {
-  		display: block;
-  		position:relative;
-  		text-align:left;
-  		font-family: Sans-Serif;
-  		width:100%;
-  		height:100%;
-  		padding-left:25px;}
+		}</style>
 
-	h1 {
-		font-weight: 100;
-		font-size: 52px;
-		color:white;
-		text-shadow: 5px 5px 20px #505050;}
-	
-	h2 {
-		text-shadow:1px 1px 3px #505050;
-		letter-spacing:1pt;
-		color: white;
-		font-size:18px;
-		font-weight: 100;
-		line-height:2;
-		padding-top: 20px;}
-	
-	h3 {
-		font-size: 12px;
-		color: #E8E8E8;
-		font-weight: lighter;
-		font-style: italic;
-		line-height:2;
-		letter-spacing:1px;
-		text-shadow:1px 1px 3px #505050;
-		padding-top: 50px;
-		padding-bottom:25px;}
 
-	
-	section {
-		display: block;
-  		width:100%;
-  		height:100%;
-  		clear:both;}
-	
-  .backgroundimage {
-      position: absolute;
-      height:100%;
-      background-size: cover;
-      background-attachment: fixed;
-      background-repeat: no-repeat;
-      top: 0;
-      left: 0;
-      right: 0;
-      opacity:0.8;
-      background-image: url("https://cloud.githubusercontent.com/assets/10858106/7486534/b573b352-f374-11e4-97aa-11a65c4da0e2.jpg");}
-    
-    p.text { display:block;
-		width:80%;
-		margin:0 auto;
-		font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "Apple Gothic", sans-serif;
-		font-size: 20px;
-		padding-top: 40px;
-		padding-bottom: 40px;
-		line-height: 2;
-		text-align: left !important;}
-    	
-    p.caption { display:block;
-		width:60%;
-		margin:0 auto;
-		font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "Apple Gothic", sans-serif;
-		font-size: 12px;
-		padding-bottom: 25px;
-		padding-top: 5px;
-		text-align: left;}
+	<!-- DONUT CHART & TABLE (INLINE)-->
+	<div id="inline">
 		
-body{
-	display:block;
-	margin: 0 auto;
-}
-   
-</style>
+		<div id="leftside">
+			<img 
+				src="https://cloud.githubusercontent.com/assets/10858106/7495945/3a0a325c-f3df-11e4-8658-3eb68d5fdb30.png"
+				alt="donutchart"
+				style="max-width:450px;height:auto;">
+
+			</div>
+		
+		<div id="rightside">
+			<table 
+				class="tg"
+				table-layout="fixed">
+			    <colgroup>
+				<col style="width: 100px">
+				<col style="width: 70px">
+				<col style="width: 85px"></colgroup>
+
+				<tr>
+				 	<th class="tg-xvrm"></th>
+			 		<th class="tg-n57x">Citations</th>
+	    				<th class="tg-n57x">Population</th></tr>
+	  			<tr>
+	    			<td class="tg-xvrm"><font color=#4cadc7>Manhattan</font></td>
+	    			<td class="tg-l0f2">502</td>
+	    			<td class="tg-l0f2">1,626,159</td></tr>
+	  			<tr>
+					 <td class="tg-xvrm"><font color=#8164a3>Brooklyn</font></td>
+					 <td class="tg-l0f2">6,466</td>
+					 <td class="tg-l0f2">2,592,149</td></tr>
+	  			<tr>
+					 <td class="tg-xvrm"><font color=#c0514e>Queens</font></td>
+					 <td class="tg-l0f2">7,449</td>
+					 <td class="tg-l0f2">2,296,149</td></tr>
+	  			<tr>
+	  				<td class="tg-xvrm"><font color=#9CBC5A>Bronx</font></td>
+					<td class="tg-l0f2">3,851</td>
+	    			<td class="tg-l0f2">1,418,733</td></tr>
+	  			<tr>
+	    				<td class="tg-xvrm"><font color=#5082bd>Staten Island</font></td>
+	    				<td class="tg-l0f2">2,252</td>
+	    				<td class="tg-l0f2">472,621</td></tr></table></div>
+		<div style="clear: both;"></div>
+		</div>
 
 
-<body>
+	<!--PARAGRAPH // POPULATION SIZE // ZONING -->
+	<div>
+		<p class="text">
+			<br>When population size is taken into account, the large number of 
+			citations issued in Brooklyn and Queens seems much less extreme. 
+			The chart above compares the percentage of New York City's population 
+			residing in each of the five boroughs with the percentage of total violations 
+			that occurred in those regions. 
+			For Brooklyn, Queens and the Bronx, the high number of citations seems 
+			more reasonable when considering the total number of people residing there. 
+			But the population-to-citation ratios of Manhattan and Staten Island 
+			are a bit more surprising. 
+			<br><br>
+			While Manhattanites received significantly less citations per resident than 
+			one would expect, Staten Island received a disproportionately huge amount of tickets.
+			But this doesn't necessarily mean that people in Manhattan are abnormally anal about 
+			their sidewalks, nor should we assume that the residents of Staten Island are simply slackers. 
+			<br><br>
+			The map below shows the distribution of citations issued in all five boroughs
+			along with all the zoning districts. Most violations occurred in residential areas,
+			while commercial districts and city-owned properties and parks have fewer offenses.
+			Manhattan consists of far more commercial and city-owned properties than any other
+			borough, and Staten Island is mostly covered in residential areas. 
+			There probably isn't much of a difference in work ethic between residents of New York's boroughs. 
+			Laziness certainly isn't the cause of this difference in violation, but the zoning districts
+			seem to have a lot to do with it. Business owners might have a bit more motivation
+			to clean the sidewalks at their commercial properties than homeowners.</p></div>
 
 
-<!--CARTODB MAP STARTS HERE-->
+	<!--CENTERED IMAGES-->
+	<div class="image"></div>
+	<IMG class="image"
+		src="https://cloud.githubusercontent.com/assets/10858106/7486052/12d3d02a-f36d-11e4-83d7-845c99825c69.png" 
+	   	alt="zones">
 
-  <head>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-    <link rel="shortcut icon" href="http://cartodb.com/assets/favicon.ico" />
+
+	<!-- CAPTION // QGIS ZONING MAP -->	
+	<div>
+		<p class="caption">
+			The dots on this map show where the citations were issued. The darker the dot, the higher the number 
+			of offenses. The reddest regions therefore likely represent New York City's snowiest sidewalks. All of the 
+			snowiest areas are clearly in residential zones, while city properties and commercial/manufacturing districts
+			had almost no tickets.</p></div>
+	   		
+	<br><br><br><br>	
+
+	<!-- SOURCE LINKS -->
+	<p class="credits">
+		<p>
+			<a href="https://data.cityofnewyork.us/City-Government/Sidewalk-Snow-Ice-Violations-Winter-2014-15/cxu8-3x2f">Environmental Control Board Notice of Violations / Office of Administrative Trials & Hearings</a><br>
+			<a href="https://data.cityofnewyork.us/City-Government/City-Owned-Properties/xhig-e2g7">City-owned and Leased Property: Department of Citywide Administrative Services (DCAS)</a><br>
+			<a href="http://www.nyc.gov/html/dcp/html/census/popcur.shtml">Population Estimates: NYC Department of City Planning</a><br>
+			<a href="http://www.nyc.gov/html/dcp/html/bytes/applbyte.shtml">NYC Zoning Map</a><br></p></p>
+
+
+	</body>
+</html>
+
+
+
+
+
+
+<!--STYLE TIME-->
+<style>
+	section 
+		{
+  			width:100%;
+  			height:100%;
+  			clear:both;
+  		}
+	
+ 	.backgroundimage 
+ 		{
+ 			position: absolute;
+			background-size: cover; 
+			width:100%;
+			height:100%;     		
+      		background-attachment: fixed;
+      		background-repeat: no-repeat;
+      		background-position: 50% 50%;      		
+      		top: 0;
+     	 	left: 0;
+     	 	right: 0;
+      		opacity:0.9;
+      		background-image: url("https://cloud.githubusercontent.com/assets/10858106/7486534/b573b352-f374-11e4-97aa-11a65c4da0e2.jpg");}
+
+    #headings 
+    	{
+	  		display: block;
+  			position:relative;
+  			text-align:left;
+  			font-family: Sans-Serif;
+  			width:100%;
+  			height:100%;
+  			padding-left:50px;
+  			padding-top: 50px;
+	  	}
+
+		h1 
+			{
+				font-weight: 100;
+				font-size: 52px;
+				color:white;
+				text-shadow: 5px 5px 20px #505050;
+			}
+			
+		h2 
+			{
+				text-shadow:1px 1px 3px #505050;
+				letter-spacing:1pt;
+				color: white;
+				font-size:18px;
+				font-weight: 100;
+				line-height:2;
+				padding-top: 20px;
+			}
+		
+		h3 
+			{
+				font-size: 12px;
+				color: #E8E8E8;
+				font-weight: lighter;
+				font-style: italic;
+				line-height:2;
+				letter-spacing:1px;
+				text-shadow:1px 1px 3px #505050;
+				padding-top: 50px;
+				padding-bottom:25px;
+			}
     
-    <style>
-        #map {
-        height: 600px;
-        width:100%;
-        padding-top:200px;
-        }
-    </style>
-
-    <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.14/themes/css/cartodb.css" />
-  </head>
-  
-    <div id="map"></div>
-    
-    <script src="http://libs.cartocdn.com/cartodb.js/v3/3.14/cartodb.js"></script>
-
-    <script>
-      function main() {
-        cartodb.createVis('map', 'https://hannekeweitering.cartodb.com/api/v2/viz/e46f1604-f227-11e4-8039-0e8dde98a187/viz.json', {
-            shareable: true,
-            title: false,
-            description: true,
-            search: true,
-            tiles_loader: false,
-            center_lat: 40.7142700,
-            center_lon: -73.977346,
-            zoom: 11})
-        .done(function(vis, layers) {
-          layers[1].setInteraction(true);
-          layers[1].on('featureOver', function(e, latlng, pos, data) {
-            cartodb.log.log(e, latlng, pos, data);});
-          var map = vis.getNativeMap();})
-        .error(function(err) {
-          console.log(err);});}
-      window.onload = main;
-    </script>
-
-
-
-<div>
-	<p class="caption">
-		This heatmap shows the accumulation of citations issued for snow and ice on 
-		New York City's sidewalks between January 1 and March 19 of 2015.	
-	</p>
-</div>
-
-
-
- <!--********LEDE / INTRODUCTION PARAGRAPH********-->
-  <div>
-    <p class="text">
-    	Slippery sidewalks can be a pain for pedestrians, but in New York City, 
-    	they can cost property owners an awful lot of money. 
-    	New York <a href="http://codes.lp.findlaw.com/nycode/ADC/16/1/16-123">law</a> 
-    	demands that residents and business owners alike shovel snow and clear the ice 
-    	on all sidewalks adjacent to their properties.
+    p.text 
+    	{
+    		display:block;
+			width:80%;
+			margin:0 auto;
+			font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "Apple Gothic", sans-serif;
+			font-size: 20px;
+			padding-top: 40px;
+			padding-bottom: 40px;
+			line-height: 2;
+			text-align: left !important;
+		}
     	
-    	Those who don't comply face hundreds of dollars in fines or even 
-    	<a href="http://www.ibtimes.com/jailed-not-shoveling-your-sidewalk-thats-law-new-york-paper-least-1558052">jail time</a>.
-    	Despite the harsh consequences, thousands of New Yorkers neglect their snowy sidewalks every winter.
-    </p>
-    </div>
-  
-  <!--**********PARAGRAPH ABOUT REPEAT OFFENDERS, CONSEQUENCES**********-->
-  <div>  
-     <p class="text">
-    	While a vast majority of offenders seem to learn their lesson after acquiring only one or two  
-    	citations, others continually neglect their hazardous snowy sidewalks and face heavy fines. 
-    	First offenses cost $150, while repeat offenders must cough up $250 per violation. 
-    	During the winter of 2015, nearly eighty percent of New Yorkers who were cited were first-time offenders. 
-    	As for the repeat offenders, over half of them received just two citations. 
-    </p>
-  </div>
+    p.caption 
+    	{
+	    	display:block;
+			width:80%;
+			margin:0 auto;
+			font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "Apple Gothic", sans-serif;
+			font-size: 13px;
+			padding-bottom: 25px;
+			padding-top: 5px;
+			text-align: left;
+			font-style: italic;
+			font-weight: lighter;
+		}
 
-<br><br><br><br>
+	p.charttitle
+		{
+			display:block;
+			width:80%;
+			margin:0 auto;
+			font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "Apple Gothic", sans-serif;
+			font-size: 20px;
+			padding-bottom: 30px;
+			padding-top: 5px;
+			text-align: center;
+			font-variant: small-caps;
+			font-weight: normal;
+		}
+		
+	body 
+		{
+			margin:0 auto;
+			display:block;
+		}
 
+	map 
+		{
+        	display:block;
+        	height: 600px;
+        	width:100%;
+        	left:0;
+        	right:0;
+        	padding-top:250px;
+        	position:static;
+        	margin-top:20px;
+        } 
 
-<div>
-	<p class="caption">
-	Between January 1 and March 19, 2015, more than 20 thousand citations were issued to about 14 thousand New Yorkers.
-	Not pictured in this chart are the 10,950 first-time offenders.
-	</p>
-</div>
-
-
-<IMG class="image" 
- 	src="https://cloud.githubusercontent.com/assets/10858106/7478831/66f7e282-f32b-11e4-8c7f-813e1c7ef614.png" 
-  	alt="repeatoffenderfrequency">
-  
-    	
-  <div>
-    	<p class="text">
-    	In terms of total citations this year,  Brooklyn and Queens certainly take the cake with 
-    	6,466 and 7,449 violations, respectively, between January 1 and March 19. 
-    	But while Brooklyn and Queens may have racked up the most citations, 
-    	Staten Island received the highest number of violations per resident. 
-    	Meanwhile, Manhattanites proved to be the most diligent sidewalk cleaners of all, with only 502 tickets total.
-    	<br><br>
-    </p>
-  </div>
-
-<div align="center">
-	<p class="caption" text-align="center">
-		Percentage Breakdown by Boroughs: Citations & Populations
-	</p>
-</div>
+    .image
+    	{
+    		display:block;
+	  		width:90%;
+	 		height:auto;
+	 		margin:0 auto;
+	 	}
 
 
 <!--TABLE STYLE-->
 
-<style>
-.tg  {border-collapse:collapse;border-spacing:0;border:none;}
-.tg td{font-family:sans-serif;font-size:14px;padding:3px 3px;border-style:solid;border-width:0px;word-break:normal;}
-.tg th{font-family:sans-serif;font-size:14px;padding:3px 3px;border-style:solid;border-width:0px;word-break:normal;}
-.tg .tg-xvrm{font-variant:small-caps;font-family:sans-serif;text-align:right;}
-.tg .tg-n57x{font-variant:small-caps;font-family:sans-serif;text-align:right;}
-.tg .tg-l0f2{font-family:sans-serif;text-align:right}
-
-</style>
-
-
-
-<!--IN-LINE DIV ITEMS-->
-<style>
-	#inline
+	.tg 
 		{
-			display:block;
-			width:800px;
-			margin:0 auto;
-			padding-top:0px;
-			padding-bottom:80px;
+		border-collapse:collapse;
+		border-spacing:0;
+		border:none;
 		}
-	
-	#leftside
+	.tg td 
 		{
-			display: inline-block;
-			float: left; 
+			font-family:sans-serif;
+			font-size:14px;
+			padding:3px 3px;
+			border-style:solid;
+			border-width:0px;
+			word-break:normal;
 		}
-	
-	#rightside{
-			display: inline-block;
-			float: right;
+	.tg th 
+		{
+			font-family:sans-serif;
+			font-size:14px;
+			padding:3px 3px;
+			border-style:solid;
+			border-width:0px;
+			word-break:normal;
 		}
-</style>
-
-<div id="inline">
-	
-	<div id="leftside">
-		<img src="https://cloud.githubusercontent.com/assets/10858106/7495945/3a0a325c-f3df-11e4-8658-3eb68d5fdb30.png">
-		</div>
-	
-	<div id="rightside">
-		<br><br><br><br><br><br><br>
-		<table class="tg"
-			table-layout="fixed">
-		        <colgroup>
-				<col style="width: 100px">
-				<col style="width: 70px">
-				<col style="width: 85px">
-		        </colgroup>
-
-			<tr>
-			 	<th class="tg-xvrm"></th>
-		 		<th class="tg-n57x">Citations</th>
-    				<th class="tg-n57x">Population</th>
-			</tr>
-  			<tr>
-    				<td class="tg-xvrm"><font color=#4cadc7>Manhattan</font></td>
-    				<td class="tg-l0f2">502</td>
-    				<td class="tg-l0f2">1,626,159</td>
-			 </tr>
-  			<tr>
-				 <td class="tg-xvrm"><font color=#8164a3>Brooklyn</font></td>
-				 <td class="tg-l0f2">6,466</td>
-				 <td class="tg-l0f2">2,592,149</td>
-  			</tr>
-  			<tr>
-				 <td class="tg-xvrm"><font color=#c0514e>Queens</font></td>
-				 <td class="tg-l0f2">7,449</td>
-				 <td class="tg-l0f2">2,296,149</td>
-			</tr>
-  			<tr>
-    				<td class="tg-xvrm"><font color=#9CBC5A>Bronx</font></td>
-				<td class="tg-l0f2">3,851</td>
-    				<td class="tg-l0f2">1,418,733</td>
-  			</tr>
-  			<tr>
-    				<td class="tg-xvrm"><font color=#5082bd>Staten Island</font></td>
-    				<td class="tg-l0f2">2,252</td>
-    				<td class="tg-l0f2">472,621</td>
-  			</tr>
-		</table>
-	</div>
-	
-	<div style="clear: both;"></div>
-</div>
-
-<div>
-	<p class="text">
-		When population size is taken into account, the large number of 
-		citations issued in Brooklyn and Queens seems much less extreme. 
-		The chart above compares the percentage of New York City's population 
-		residing in each of the five boroughs with the percentage of total violations 
-		that occurred in those regions. 
-		For Brooklyn, Queens and the Bronx, the high number of citations seems 
-		more reasonable when considering the total number of people residing there. 
-		But the population-to-citation ratios of Manhattan and Staten Island 
-		are a bit more surprising. 
-		<br><br>
-		While Manhattanites received significantly less citations per resident than 
-		one would expect, Staten Island received a disproportionately huge amount of tickets.
-		But this doesn't necessarily mean that people in Manhattan are abnormally anal about 
-		their sidewalks, nor should we assume that the residents of Staten Island are simply slackers. 
-		<br><br>
-		The map below shows the distribution of citations issued in all five boroughs
-		along with all the zoning districts. Most violations occurred in residential areas,
-		while commercial districts and city-owned properties and parks have fewer offenses.
-		Manhattan consists of far more commercial and city-owned properties than any other
-		borough, and Staten Island is mostly covered in residential areas. 
-		There probably isn't much of a difference in work ethic between residents of New York's boroughs. 
-		Laziness certainly isn't the cause of this difference in violation, but the zoning districts
-		seem to have a lot to do with it. Business owners might have a bit more motivation
-		to clean the sidewalks at their commercial properties than homeowners.
-	</p>
-</div>
+	.tg .tg-xvrm 
+		{
+			font-variant:small-caps;
+			font-family:sans-serif;
+			text-align:right;
+		}
+	.tg .tg-n57x 
+		{
+			font-variant:small-caps;
+			font-family:sans-serif;
+			text-align:right;
+		}
+	.tg .tg-l0f2 
+		{
+			font-family:sans-serif;
+			text-align:right;
+		}
 
 
 
 
 
 
-<!--CENTERED IMAGES-->
-
-<div class="image"></div>
-
-<style>
-IMG.image
-	{ display:block;
-	  width:90%;
-	  height:auto;
-	  margin:0 auto;
-    	}
-</style>
-
- 
-
-<IMG class="image"
-	src="https://cloud.githubusercontent.com/assets/10858106/7486052/12d3d02a-f36d-11e4-83d7-845c99825c69.png" 
-   	alt="zones">
-	
-<div>
-	<p class="caption">
-		The dots on this map show where the citations were issued. The darker the dot, the higher the number 
-		of offenses. The reddest regions therefore likely represent New York City's snowiest sidewalks. All of the 
-		snowiest areas are clearly in residential zones, while city properties and commercial/manufacturing districts
-		had almost no tickets.
-	</p>
-</div>
-   	
-   	
-<br><br><br><br>	
-<p class="credits">
-	<p>
-		<a href="https://data.cityofnewyork.us/City-Government/Sidewalk-Snow-Ice-Violations-Winter-2014-15/cxu8-3x2f">Environmental Control Board Notice of Violations / Office of Administrative Trials & Hearings</a><br>
-		<a href="https://data.cityofnewyork.us/City-Government/City-Owned-Properties/xhig-e2g7">City-owned and Leased Property: Department of Citywide Administrative Services (DCAS)</a><br>
-		<a href="http://www.nyc.gov/html/dcp/html/census/popcur.shtml">Population Estimates: NYC Department of City Planning</a><br>
-		<a href="http://www.nyc.gov/html/dcp/html/bytes/applbyte.shtml">NYC Zoning Map</a><br>
-	</p>	
-</p>
-
-<br><br><br><br>
-<style>
-	#credits{
+#credits
+	{
 		font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "Apple Gothic", sans-serif;
 		font-size: 12px;
 		padding-top: 50px;
@@ -395,10 +458,6 @@ IMG.image
 		line-height: 2;	
 	}
 </style>
-
-</body>
-</html>
-
 
 
 
