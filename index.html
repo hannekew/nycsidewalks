@@ -6,72 +6,39 @@
 
 <div class="backgroundimage"></div>
   
-<header id="headings">
-	<h1>New York City's <br>
-  		<b>Snowiest</b> Sidewalks</h1>
+	<header id="headings">
+		<h1>
+			New York City's <br>
+  			<b>Snowiest</b> Sidewalks </h1>
   	
-  	<h2>Brooklyn and Queens rack up the most citations for slippery <br>
-  		sidewalks, but Staten Island residents are the biggest <br>
-  		slackers when it comes to shoveling snow.</h2>
+  		<h2>
+  			Brooklyn and Queens rack up the most citations for slippery <br>
+  			sidewalks, but Staten Island residents are the biggest <br>
+  			slackers when it comes to shoveling snow. </h2>
   	
-  	<h3>By Hanneke Weitering<br>
-  		May 6, 2015</h3>
-</header>
+  		<h3>
+  			By Hanneke Weitering<br>
+  			May 6, 2015 </h3>
+	</header>
 
 </section>
 
-  <style>
-  #headings 
-  	{
-	  position:relative;
+<style>
+
+  #headings {position:relative;
   	  text-align:left;
   	  font-family: Sans-Serif;
   	  width:90%;
-  	  padding: 25px 50px;
+  	  padding: 25px 50px;}
 
-  	}
-
-
-  
-  h1	{
-	  font-weight: 100;
-   	  font-size: 52px;
-   	  color:white;
-   	  text-shadow: 5px 5px 20px #505050;
-	}
-
-  
-  h2	{
-  	   text-shadow:1px 1px 3px #505050;
-  	   letter-spacing:1pt;
-  	   color: white;
-  	   font-size:18px;
-  	   font-weight: 100;
-  	   line-height:2;
-  	   padding: 20px 0px;
-	}
+	h1 {font-weight: 100;font-size: 52px;color:white;text-shadow: 5px 5px 20px #505050;}
+	h2 {text-shadow:1px 1px 3px #505050;letter-spacing:1pt;color: white;font-size:18px;font-weight: 100;line-height:2;padding: 20px 0px;}
+	h3 {font-size: 12px;color: #E8E8E8;font-weight: lighter;font-style: italic;line-height:2;letter-spacing:1px;text-shadow:1px 1px 3px #505050;padding: 50px 0px;}
 
 	
-   h3	{
-   	font-size: 12px;
-   	color: #E8E8E8;
-   	font-weight: lighter;
-   	font-style: italic;
-   	line-height:2;
-   	letter-spacing:1px;
-   	text-shadow:1px 1px 3px #505050;
-   	padding: 50px 0px;
-   	}
-
+  section {display: block;box-sizing: border-box;clear:both;padding-bottom: 10px;}
 	
-section { 
-    	display: block;
-    	box-sizing: border-box;
-    	clear:both;
-    	padding-bottom: 10px;
-	}
-	
-.backgroundimage{
+  .backgroundimage {
       position: absolute;
       width:100%;
       background-size: cover;
@@ -83,12 +50,9 @@ section {
       right: 0;
       height:100%;
       opacity:0.8;
-      background-image: url("https://cloud.githubusercontent.com/assets/10858106/7486534/b573b352-f374-11e4-97aa-11a65c4da0e2.jpg");
-}
+      background-image: url("https://cloud.githubusercontent.com/assets/10858106/7486534/b573b352-f374-11e4-97aa-11a65c4da0e2.jpg");}
     
-    p.text
-    	{
-		display:block;
+    p.text { display:block;
 		width:80%;
 		margin:0 auto;
 		font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "Apple Gothic", sans-serif;
@@ -96,31 +60,23 @@ section {
 		padding-top: 40px;
 		padding-bottom: 40px;
 		line-height: 2;
-		text-align: left !important;;    
-    	}
+		text-align: left !important;}
     	
-    p.caption{
-    		display:block;
+    p.caption { display:block;
 		width:60%;
 		margin:0 auto;
 		font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "Apple Gothic", sans-serif;
 		font-size: 12px;
 		padding-bottom: 25px;
 		padding-top: 5px;
-		text-align: left;
-    }
+		text-align: left;}
    
-
-  </style>
-  
-  
-  
+</style>
 <body>
 
 
 <!--CARTODB MAP STARTS HERE-->
 
-  <html>
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
@@ -128,18 +84,16 @@ section {
     
     <style>
       html, body, #map {
-        padding-top:10px;
+        padding-top:0px;
         height: 600px;
-        width:100%;
-      }
+        width:100%;}
     </style>
 
     <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.14/themes/css/cartodb.css" />
   </head>
   
-  <body>
     <div id="map"></div>
-
+    
     <script src="http://libs.cartocdn.com/cartodb.js/v3/3.14/cartodb.js"></script>
 
     <script>
@@ -152,23 +106,19 @@ section {
             tiles_loader: false,
             center_lat: 40.7142700,
             center_lon: -73.977346,
-            zoom: 11
-        })
+            zoom: 11})
         .done(function(vis, layers) {
           layers[1].setInteraction(true);
           layers[1].on('featureOver', function(e, latlng, pos, data) {
-            cartodb.log.log(e, latlng, pos, data);
-          });
-          var map = vis.getNativeMap();
-        })
+            cartodb.log.log(e, latlng, pos, data);});
+          var map = vis.getNativeMap();})
         .error(function(err) {
-          console.log(err);
-        });
-      }
+          console.log(err);});}
       window.onload = main;
     </script>
-  </body>
-</html>
+
+
+
 <div>
 	<p class="caption">
 		This heatmap shows the accumulation of citations issued for snow and ice on 
